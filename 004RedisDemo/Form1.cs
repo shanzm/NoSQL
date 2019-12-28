@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,7 +33,7 @@ namespace _004RedisDemo
                 #endregion
 
                 //写入数据
-                await db.StringSetAsync("Name", "张三");
+                await db.StringSetAsync("Name", "张三", TimeSpan.FromSeconds(10));
 
                 //批量写入
                 KeyValuePair<RedisKey, RedisValue>[] kvs = new KeyValuePair<RedisKey, RedisValue>[3];
@@ -42,13 +43,29 @@ namespace _004RedisDemo
                 kvs[2] = new KeyValuePair<RedisKey, RedisValue>("C", "c");
                 await db.StringSetAsync(kvs);
 
-                //读取数据
+                //读取数据(查询不到数据返回为null)
                 string name = await db.StringGetAsync("Name");
                 string A = await db.StringGetAsync("A");
-                
 
                 MessageBox.Show(name);
                 MessageBox.Show(A);
+
+                //删除数据
+                db.KeyDelete("A");
+
+                //判断是否存在某条数据
+                //不建议开发中这么使用，会有并发问题
+                //虽然Redis服务器是单线程的，
+                //但是程序在运行的时候，有可能在你查询是否存在之后，有删除程序，之后又有根据你之前查询存在后查询
+                if (!db.KeyExists("A"))
+                {
+                    MessageBox.Show("已删除Key值为‘A’的数据");
+                }
+
+
+                //对已经存储的数据设置过期时间
+                db.KeyExpire("B", TimeSpan.FromSeconds(10));
+               
             }
             MessageBox.Show("Ok");
         }

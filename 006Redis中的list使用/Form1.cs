@@ -34,7 +34,7 @@ namespace _006Redis中的list使用
             }
         }
 
-
+        //点击按钮实现输入的数据从左进入List
         private void btnLeftPush_Click(object sender, EventArgs e)
         {
             using (ConnectionMultiplexer conn = ConnectionMultiplexer.Connect("127.0.0.1:6379"))
@@ -45,6 +45,7 @@ namespace _006Redis中的list使用
             LoadListBox();
         }
 
+        //点击按钮实现输入的数据从右进入List
         private void btnRightPush_Click(object sender, EventArgs e)
         {
             using (ConnectionMultiplexer conn = ConnectionMultiplexer.Connect("127.0.0.1:6379"))
@@ -55,6 +56,7 @@ namespace _006Redis中的list使用
             LoadListBox();
         }
 
+        //点击按钮实现从左弹出List中的数据
         private void btnLeftPop_Click(object sender, EventArgs e)
         {
             using (ConnectionMultiplexer conn = ConnectionMultiplexer.Connect("127.0.0.1:6379"))
@@ -65,6 +67,7 @@ namespace _006Redis中的list使用
             LoadListBox();
         }
 
+        //点击按钮实现从右弹出List中的数据
         private void btnRightPop_Click(object sender, EventArgs e)
         {
             using (ConnectionMultiplexer conn = ConnectionMultiplexer.Connect("127.0.0.1:6379"))

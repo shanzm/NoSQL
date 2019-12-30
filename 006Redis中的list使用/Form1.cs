@@ -16,6 +16,7 @@ namespace _006Redis中的list使用
         public Form1()
         {
             InitializeComponent();
+            LoadListBox();
         }
 
 
@@ -26,6 +27,8 @@ namespace _006Redis中的list使用
             {
                 IDatabase db = conn.GetDatabase();
                 RedisValue[] values = db.ListRange("list1");
+                //注意：使用ListRange（RedisKey listKey，long start，long stop）可以获取相应list中的一定范围的数据，不加范围参数则默认是查询所有的数据
+
                 listBox1.Items.Clear();
                 foreach (RedisValue item in values)
                 {
@@ -62,7 +65,8 @@ namespace _006Redis中的list使用
             using (ConnectionMultiplexer conn = ConnectionMultiplexer.Connect("127.0.0.1:6379"))
             {
                 IDatabase db = conn.GetDatabase();
-                db.ListLeftPop("list1");
+                string val = db.ListLeftPop("list1");//注意弹出函数在弹出的同时，返回弹出的value
+                MessageBox.Show($"已经把{val}弹出");
             }
             LoadListBox();
         }

@@ -9,6 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+///list 是一个链表结构，主要功能是 push、pop、获取一个范围内的所有值等等，操作中 key 理解为链表的名字。
+///Redis 的 list 类型其实就是一个每个子元素都是 string 类型的双向链表。
+///我们可以通过push、pop 操作从链表的头部或尾部添加删除元素。
+
 namespace _006Redis中的list使用
 {
     public partial class Form1 : Form

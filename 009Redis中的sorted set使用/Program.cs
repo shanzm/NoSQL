@@ -11,6 +11,8 @@ using StackExchange.Redis;
 ///每次指定后，zset 会自动重新按新的值（分数）调整顺序。
 
 ///因为zset会自动根据分数排序，所以在实际应用于需要排序的遍历的地方，比如说：根据点赞量排名
+///像热搜排行榜、热门产品之类的序列，可以根据用户搜索的次数打分，可以使用sorted set存储其score，来排序显示
+
 
 namespace _009Redis中的sorted_set使用
 {

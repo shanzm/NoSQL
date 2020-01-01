@@ -19,17 +19,16 @@ namespace _005使用Redis计算新闻点击量.Controllers
                 IDatabase db = conn.GetDatabase();
                 string userId = Request.UserHostAddress;
 
-                string hasClickKey = "New" + id + userId;//key中包含用户的IP地址(::1)，所以一个IP只能点击一次
+                string hasClickKey = "New" + id;//key为"New"+新闻的Id
 
-                //Redis数据库中不存在，则创建并加1
-                if (!db.KeyExists(hasClickKey))
+                //若是当前的IP地址没有记录，则把IP地址记录在Redis数据库中，设置周期为1天
+                //同时该新闻的点击量加1
+                if (!db.KeyExists(userId))
                 {
-                    //db.StringSet(hasClickKey, 0, TimeSpan.FromDays(1));//在Redis数据库中初始化,只保存一天，一天只能点击一次
-                    //注意哦我们不需要单独去在数据库中添加一个键值对，使用StringIncrement（）时若是数据库尚无该key则自动创建
+                    db.StringSet(userId, 1, TimeSpan.FromDays(1));
                     db.StringIncrement(hasClickKey, 1);//根据传来的id参数，给相应id的新闻的点击量加1
+                                                       //注意哦我们不需要单独去在数据库中添加一个键值对，使用StringIncrement（）时若是数据库尚无该key则自动创建
                 }
-
-
 
 
                 long count = Convert.ToInt64(db.StringGet(hasClickKey));//读取出最新的点击量

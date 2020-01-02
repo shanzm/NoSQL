@@ -1,0 +1,34 @@
+﻿
+@model string[]
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Search", "Index2", "Post"))
+        {
+            <span>输入搜索</span>@Html.TextBox("word")
+            <input type="submit" ,value="搜索" />
+        }
+
+
+        @*<form action="~/Index/Search" method="post">
+                <input type="text" name="word" /><br />
+                <input type="submit" value="搜索" /><br />
+            </form>>*@
+
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@item </li>
+            }
+        </ul>
+
+    </div>
+</body>
+</html>

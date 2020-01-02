@@ -14,9 +14,6 @@ namespace _010Redis中使用sorted_set实现热搜.Controllers
 {
     public class IndexController : Controller
     {
-
-
-        [HttpGet]
         public ActionResult Index()
         {
 
@@ -31,21 +28,16 @@ namespace _010Redis中使用sorted_set实现热搜.Controllers
 
         }
 
-
         public ActionResult Search(string word)
         {
             using (ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("127.0.0.1:6379"))
             {
                 IDatabase db = redis.GetDatabase();
-                //string userIp = Request.UserHostAddress;
-                //string key = "Search_user" + userIp + "_word";
-                //if (!db.KeyExists(key))
-                //{
-                //    db.SortedSetIncrement(key, word, 1);//key中加入用户ip防止作弊
-                //}
                 db.SortedSetIncrement("Search_User_word", word, 1);
+                //todo:通过IP，防止作弊
             }
             return Redirect("Index/index");
         }
+  
     }
 }

@@ -25,12 +25,23 @@ namespace _012Redis中的geo使用
                 //向Redis数据库中插入geo类型数据
                 //下面插入的兴趣点是商店，
                 //最后一个参数中的”1”、”2”是点的主键，点的名称、地址、电话等存到其他表中
-                db.GeoAdd("ShopsGeo", new GeoEntry(116.34039, 39.94218, "1"));
-                db.GeoAdd("ShopsGeo", new GeoEntry(116.340934, 39.942221, "2"));
-                db.GeoAdd("ShopsGeo", new GeoEntry(116.341082, 39.941025, "3"));
-                db.GeoAdd("ShopsGeo", new GeoEntry(116.340848, 39.937758, "4"));
-                db.GeoAdd("ShopsGeo", new GeoEntry(116.342982, 39.937325, "5"));
-                db.GeoAdd("ShopsGeo", new GeoEntry(116.340866, 39.936827, "6"));
+                //db.GeoAdd("ShopsGeo", new GeoEntry(116.34039, 39.94218, "1"));
+                //db.GeoAdd("ShopsGeo", new GeoEntry(116.340934, 39.942221, "2"));
+                //db.GeoAdd("ShopsGeo", new GeoEntry(116.341082, 39.941025, "3"));
+                //db.GeoAdd("ShopsGeo", new GeoEntry(116.340848, 39.937758, "4"));
+                //db.GeoAdd("ShopsGeo", new GeoEntry(116.342982, 39.937325, "5"));
+                //db.GeoAdd("ShopsGeo", new GeoEntry(116.340866, 39.936827, "6"));
+
+                //上面的插入数据的方式需要连接Redis服务器多次，下面只需要一次，注意这样可以提高性能
+                GeoEntry[] geos = new GeoEntry[]
+                {
+                    new GeoEntry (116.34039, 39.94218, "1"),
+                    new GeoEntry(116.340934, 39.942221, "2"),
+                    new GeoEntry(116.341082, 39.941025, "3"),
+                    new GeoEntry(116.340848, 39.937758, "4"),
+                    new GeoEntry(116.342982, 39.937325, "5"),
+                    new GeoEntry(116.340866, 39.936827, "6")
+                };
 
 
                 //计算两点之间的距离

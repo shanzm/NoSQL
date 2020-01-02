@@ -10,9 +10,6 @@ namespace _010Redis中使用sorted_set实现热搜.Controllers
 {
     public class Index2Controller : Controller
     {
-
-
-
         //可以把搜索的词汇即分数数据在存入Redis数据库中同时也在内存中存储5分钟
         //这样在查询的时候，先去内存中读取，若是内存中没有，则再去Redis数据库中读取
         //此举可以降低redis服务器的压力
@@ -25,7 +22,8 @@ namespace _010Redis中使用sorted_set实现热搜.Controllers
             hotwords = (string[])memCache["hotwords"];
             if (hotwords != null)
             {
-                Array.ForEach(hotwords, t => System.Diagnostics.Debug.WriteLine(t.ToString()));
+                // 调试技巧:使用System.Diagnostics.Debug.WriteLine(）在VS输出栏打印数据
+                Array.ForEach(hotwords, t => System.Diagnostics.Debug.WriteLine(t.ToString()));//在VS的输出栏打印出数据，便于调试
                 return View(hotwords);
             }
 

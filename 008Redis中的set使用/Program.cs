@@ -34,6 +34,7 @@ namespace _008Redis中的set使用
                 db.SetAdd("setTest", 17);
                 db.SetAdd("setTest", 17);//你要注意，即使你插入17两次，但是因为Set中的数据是不重复的，所以数据库中的17只有一个
                                          //整体setTest的长度还是6
+                                         //注意数据中set中存储的顺序和你插入的顺序无关（也正是因此，才有的sorted set类型）
                 Console.WriteLine("插入数据到setTest集合中成功");
 
 

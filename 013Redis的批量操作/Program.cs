@@ -75,6 +75,8 @@ namespace _013Redis的批量操作
             db.SetAdd("A", "a");
             db.ListRightPush("listTest1", "shanzm");
             //db.GeoAdd("ShopsGeo1", new GeoEntry(116.34039, 39.94218, "1"));
+            //连接Redis服务器把上面的所有操作，一次性执行
+            //CreateBatch()、Execute()之间的操作一次性提交给服务器
             batch.Execute();
         }
 

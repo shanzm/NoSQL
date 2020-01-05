@@ -13,6 +13,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "004RedisDemo", "004RedisDem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "005使用Redis计算新闻点击量", "005使用Redis计算新闻点击量\005使用Redis计算新闻点击量.csproj", "{711C4D10-0BF5-4DD6-82F4-BAC10690B029}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "006Redis中的list使用", "006Redis中的list使用\006Redis中的list使用.csproj", "{1CE8F74A-B542-49ED-BA3F-57EAAD1153A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "007模拟注册发送邮件验证", "007模拟注册发送邮件验证\007模拟注册发送邮件验证.csproj", "{7A4313D7-5A70-4E44-9B14-E292AB464875}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "007模拟注册发送邮件验证-发送邮件模块", "007模拟注册发送邮件验证-发送邮件模块\007模拟注册发送邮件验证-发送邮件模块.csproj", "{FFE5D18D-F5E1-405B-8177-36D51C549B69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "008Redis中的set使用", "008Redis中的set使用\008Redis中的set使用.csproj", "{5CB5FF40-E92E-4AA9-810F-0CD224421801}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "009Redis中的sorted set使用", "009Redis中的sorted set使用\009Redis中的sorted set使用.csproj", "{B24F1633-B074-4AE6-A03B-4CD32BF4D32D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "010Redis中使用sorted set实现热搜", "010Redis中使用sorted set实现热搜\010Redis中使用sorted set实现热搜.csproj", "{558E4489-6108-4AD1-A59B-D4EF76889743}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "011Redis中使用hash使用", "011Redis中使用hash使用\011Redis中使用hash使用.csproj", "{AC78194F-43C4-4FFF-9400-AE797C587503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "012Redis中的geo使用", "012Redis中的geo使用\012Redis中的geo使用.csproj", "{2B988364-EA12-467F-B88A-BC1674B6D695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "013Redis的批量操作", "013Redis的批量操作\013Redis的批量操作.csproj", "{8058A2D6-1535-4E10-A8CB-4A9462B86E5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "014Redis分布式锁", "014Redis分布式锁\014Redis分布式锁.csproj", "{94479B5A-AC47-49C3-BBB4-9E04EFA9BEB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "015Redis实现随机分红包", "015Redis实现随机分红包\015Redis实现随机分红包.csproj", "{F5886B55-6018-4F39-9A42-C835FEC7CE7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +61,50 @@ Global
 		{711C4D10-0BF5-4DD6-82F4-BAC10690B029}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{711C4D10-0BF5-4DD6-82F4-BAC10690B029}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{711C4D10-0BF5-4DD6-82F4-BAC10690B029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE8F74A-B542-49ED-BA3F-57EAAD1153A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE8F74A-B542-49ED-BA3F-57EAAD1153A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE8F74A-B542-49ED-BA3F-57EAAD1153A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE8F74A-B542-49ED-BA3F-57EAAD1153A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A4313D7-5A70-4E44-9B14-E292AB464875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A4313D7-5A70-4E44-9B14-E292AB464875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A4313D7-5A70-4E44-9B14-E292AB464875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A4313D7-5A70-4E44-9B14-E292AB464875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE5D18D-F5E1-405B-8177-36D51C549B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE5D18D-F5E1-405B-8177-36D51C549B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE5D18D-F5E1-405B-8177-36D51C549B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE5D18D-F5E1-405B-8177-36D51C549B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CB5FF40-E92E-4AA9-810F-0CD224421801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CB5FF40-E92E-4AA9-810F-0CD224421801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CB5FF40-E92E-4AA9-810F-0CD224421801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CB5FF40-E92E-4AA9-810F-0CD224421801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24F1633-B074-4AE6-A03B-4CD32BF4D32D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24F1633-B074-4AE6-A03B-4CD32BF4D32D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24F1633-B074-4AE6-A03B-4CD32BF4D32D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24F1633-B074-4AE6-A03B-4CD32BF4D32D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558E4489-6108-4AD1-A59B-D4EF76889743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558E4489-6108-4AD1-A59B-D4EF76889743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558E4489-6108-4AD1-A59B-D4EF76889743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558E4489-6108-4AD1-A59B-D4EF76889743}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC78194F-43C4-4FFF-9400-AE797C587503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC78194F-43C4-4FFF-9400-AE797C587503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC78194F-43C4-4FFF-9400-AE797C587503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC78194F-43C4-4FFF-9400-AE797C587503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B988364-EA12-467F-B88A-BC1674B6D695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B988364-EA12-467F-B88A-BC1674B6D695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B988364-EA12-467F-B88A-BC1674B6D695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B988364-EA12-467F-B88A-BC1674B6D695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8058A2D6-1535-4E10-A8CB-4A9462B86E5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8058A2D6-1535-4E10-A8CB-4A9462B86E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8058A2D6-1535-4E10-A8CB-4A9462B86E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8058A2D6-1535-4E10-A8CB-4A9462B86E5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94479B5A-AC47-49C3-BBB4-9E04EFA9BEB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94479B5A-AC47-49C3-BBB4-9E04EFA9BEB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94479B5A-AC47-49C3-BBB4-9E04EFA9BEB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94479B5A-AC47-49C3-BBB4-9E04EFA9BEB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5886B55-6018-4F39-9A42-C835FEC7CE7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5886B55-6018-4F39-9A42-C835FEC7CE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5886B55-6018-4F39-9A42-C835FEC7CE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5886B55-6018-4F39-9A42-C835FEC7CE7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

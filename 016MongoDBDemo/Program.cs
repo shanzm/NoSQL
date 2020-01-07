@@ -27,7 +27,10 @@ namespace _016MongoDBDemo
 
 
             //插入Josn类型的数据
-            InsertJosnInMongoDB();
+            //InsertJosnInMongoDB();
+
+            //插入潜逃数据
+            InsertNestedObject();
 
             Console.WriteLine("OK");
             Console.ReadKey();
@@ -63,9 +66,25 @@ namespace _016MongoDBDemo
             IMongoCollection<BsonDocument> dogs = db.GetCollection<BsonDocument>("Dogs");
 
             string json = "{Name:'大黄',Age:10,Weight:50}";
-            BsonDocument d1 = BsonDocument.Parse(json);
+            BsonDocument d1 = BsonDocument.Parse(json);//解析Json数据
             dogs.InsertOne(d1);
 
+            //这里其实是可以对比上面把Dog对象插入MongoDB中，
+            //我们在这里的Josn数据的属性要比Dog对象的属性多，但是依旧可以插入到Dogs表中
+            //这也就是表明MongoDB数据库中的表是没有结构的（你插入的每一条数据都是以“文件”存储的）
         }
+
+        //插入有嵌套关系的对象，比如小狗和主人，
+        //注意不会有表间关系，都是存到一个集合中，注意和关系库不一样。
+        static void InsertNestedObject()
+        {
+            MongoClient client = new MongoClient("mongodb://127.0.0.1:27017");
+            IMongoDatabase db = client.GetDatabase("TestDb1");
+            IMongoCollection<Dog> dogs = db.GetCollection<Dog>("Dogs");
+
+            Dog d = new Dog() { Name = "小白", Master = new Person() { Name = "shanzm", Age = 25 } };
+            dogs.InsertOne(d);
+        }
+        
     }
 }

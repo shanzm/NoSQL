@@ -11,5 +11,6 @@ namespace _016MongoDBDemo
     {
         public ObjectId Id { get; set; }
         public string Name { get; set; }
+        public Person Master { get; set; }
     }
 }

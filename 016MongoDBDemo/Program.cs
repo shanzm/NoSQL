@@ -72,6 +72,9 @@ namespace _016MongoDBDemo
             //这里其实是可以对比上面把Dog对象插入MongoDB中，
             //我们在这里的Josn数据的属性要比Dog对象的属性多，但是依旧可以插入到Dogs表中
             //这也就是表明MongoDB数据库中的表是没有结构的（你插入的每一条数据都是以“文件”存储的）
+
+            //虽然存放数据的时候对每一个属性的类型和是否有值不做要求，
+            //但是你要是想统一读取数据，那么MongoDB中的Collection中的数据格式要保持统一
         }
 
         //插入有嵌套关系的对象，比如小狗和主人，
@@ -85,6 +88,6 @@ namespace _016MongoDBDemo
             Dog d = new Dog() { Name = "小白", Master = new Person() { Name = "shanzm", Age = 25 } };
             dogs.InsertOne(d);
         }
-        
+
     }
 }

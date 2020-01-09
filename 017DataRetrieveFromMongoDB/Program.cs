@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,10 @@ namespace _017DataRetrieveFromMongoDB
             //RetrieveFromMongoDBAsync2(db);
 
             //分页查询
-            PagedQuery(db);
+            // PagedQuery(db);
+
+            //按照Json格式查询
+            RetrieveFromMongoDBByJson(db);
 
             WriteLine("OK");
             ReadKey();
@@ -142,6 +146,18 @@ namespace _017DataRetrieveFromMongoDB
                 List<Person> listPeron = personsCursor.ToList();
                 Array.ForEach(listPeron.ToArray(), p => Console.WriteLine($"{p.Name},{p.Age },{p.Height}"));
             }
+        }
+
+        //按照json格式查询
+        static void RetrieveFromMongoDBByJson(IMongoDatabase db)
+        {
+            IMongoCollection<BsonDocument> persons = db.GetCollection<BsonDocument>("Persons");
+
+            var filter = Builders<BsonDocument>.Filter.Gt("Age", 25);//Json字符串中的key:Age(注意区分大小写)
+            var result = persons.Find(filter);
+
+            Array.ForEach(result.ToList().ToArray(),
+                          p => Console.WriteLine($"{p.GetValue("Name").AsString},{p.GetValue("Age").AsInt32}"));
         }
     }
 }

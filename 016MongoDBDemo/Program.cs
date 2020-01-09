@@ -24,11 +24,11 @@ using MongoDB.Bson;
 ///对于爬虫你爬取的信息可能存放在一张表中就比较麻烦，但是存在Collection中就很简单
 ///但是对于一些关键性的数据比如订单等涉及到金钱的信息尽量就不要使用MongoDB
 ///
-///同时之前对经纬度的操作查询都是使用Redis中的geo类型的数据，MongoDB中也是可是存储经纬度，并对齐操作的。
+///同时之前对经纬度的操作查询都是使用Redis中的geo类型的数据，MongoDB中也是可是存储经纬度，并对其操作的。
 ///
 ///有这么一种说法（未经考证）：
 ///因为MongoDB时文件型数据库，而Redis是键值型数据库，
-///所以MongoDB要比Redis负责的多，因此作为一个架构师你在作技术选型的时候，能用Redis就不要使用MongoDB
+///所以MongoDB要比Redis复杂的多，因此作为一个架构师你在作技术选型的时候，能用Redis就不要使用MongoDB
 ///
 namespace _016MongoDBDemo
 {

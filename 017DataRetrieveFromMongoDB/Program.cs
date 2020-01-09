@@ -39,7 +39,10 @@ namespace _017DataRetrieveFromMongoDB
             // PagedQuery(db);
 
             //按照Json格式查询
-            RetrieveFromMongoDBByJson(db);
+            //RetrieveFromMongoDBByJson(db);
+
+            //更新数据
+            UpdateInMongoDB(db);
 
             WriteLine("OK");
             ReadKey();
@@ -107,7 +110,6 @@ namespace _017DataRetrieveFromMongoDB
 
         }
 
-
         //异步查询（查询的结果数据量不大）
         static void RetrieveFromMongoDBAsync2(IMongoDatabase db)
         {
@@ -158,6 +160,22 @@ namespace _017DataRetrieveFromMongoDB
 
             Array.ForEach(result.ToList().ToArray(),
                           p => Console.WriteLine($"{p.GetValue("Name").AsString},{p.GetValue("Age").AsInt32}"));
+            //根据Json中的Filed字段查询具体的数据，注意，不同类型的数据使用不同的转换数据，比如Age的数据类型是整形，则使用AsInt32
+        }
+
+        //更新数据
+        static void UpdateInMongoDB(IMongoDatabase db)
+        {
+            //mongoDB一般就是用来采集数据和查询数据的，一般更新用的较少
+
+            IMongoCollection<Person> persons = db.GetCollection<Person>("Persons");
+
+            var filter = Builders<Person>.Filter.Where(p => p.Name == "张三");
+            var update = Builders<Person>.Update.Set(p => p.Age, 30);
+
+            var result = persons.UpdateOne(filter, update);//第一个参数即数据筛选条件（找出更新的对象）
+                                                           //第二个参数即需要更新的filed和其更新的值
+            Console.WriteLine("更新成功");
         }
     }
 }

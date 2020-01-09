@@ -37,7 +37,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "015Redis实现随机分红�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "016MongoDBDemo", "016MongoDBDemo\016MongoDBDemo.csproj", "{240E456E-5D47-4B60-9646-72F0E37B5EAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "017DataRetrieveFromMongoDB", "017DataRetrieveFromMongoDB\017DataRetrieveFromMongoDB.csproj", "{3B42502F-FC9D-4B72-B095-538B769D5FDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "017MongoDB中的CURD", "017MongoDB中的CURD\017MongoDB中的CURD.csproj", "{3B42502F-FC9D-4B72-B095-538B769D5FDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

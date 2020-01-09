@@ -42,7 +42,13 @@ namespace _017DataRetrieveFromMongoDB
             //RetrieveFromMongoDBByJson(db);
 
             //更新数据
-            UpdateInMongoDB(db);
+            //UpdateInMongoDB(db);
+
+            //删除数据
+            //DeleteInMongoDB(db);
+
+            //删除多条数据
+            DeleteManyInMongoDB(db);
 
             WriteLine("OK");
             ReadKey();
@@ -142,6 +148,7 @@ namespace _017DataRetrieveFromMongoDB
             findOpt.Sort = Builders<Person>.Sort.Descending(p => p.Height).Ascending(p => p.Age);//先按照身高降序，再按照年龄升序,
                                                                                                  //注意这个排序是在查询前对整个表操作，而不是查询得出结果后在对结果排序
             var filter = Builders<Person>.Filter.Where(p => p.Age > 0);
+            //注意这里的var类型是：FilterDefinition<Person>
 
             using (var personsCursor = persons.FindAsync(filter, findOpt).Result)
             {
@@ -167,6 +174,7 @@ namespace _017DataRetrieveFromMongoDB
         static void UpdateInMongoDB(IMongoDatabase db)
         {
             //mongoDB一般就是用来采集数据、查询数据和删除数据的，一般更新用的较少
+            //（在对MongoDB的具体使用中你使用Update，就意味着你的插入数据是错误的）
 
             IMongoCollection<Person> persons = db.GetCollection<Person>("Persons");
 
@@ -175,8 +183,35 @@ namespace _017DataRetrieveFromMongoDB
 
             var result = persons.UpdateOne(filter, update);//第一个参数即数据筛选条件（找出更新的对象）
                                                            //第二个参数即需要更新的filed和其更新的值
+                                                           //若是对多条数据更新则使用UpdateMany（）
             Console.WriteLine("更新成功");
+        }
+
+        //删除一条数据
+        static void DeleteInMongoDB(IMongoDatabase db)
+        {
+            IMongoCollection<Person> persons = db.GetCollection<Person>("Persons");
+
+            FilterDefinition<Person> filter = Builders<Person>.Filter.Where(p => p.Name == "Tom");
+
+            //persons.DeleteOne(filter);//只删除一个（即使有多条数据满足你定义的filter，也只删除其中的一条数据）
+            //但是即使只是删除一条Name="Tom"的数据，我们也应该使用DeleteMany（），
+            //因为MongoDB数据中可能有多条Name ="Tom"的重复数据,而我们想要的效果是删除所有的Name="Tom"（我们默认的假设就时没有重复数据）
+            persons.DeleteMany(filter);
+            Console.WriteLine("删除Tom用户成功");
+        }
+
+        //删除多条数据
+        static void DeleteManyInMongoDB(IMongoDatabase db)
+        {
+            IMongoCollection<Person> persons = db.GetCollection<Person>("Persons");
+
+            FilterDefinition<Person> filter = Builders<Person>.Filter.Where(p => p.Age > 99);
+            //与上面删除一条数据不同，就是我们的筛选结果Age大于29，可能是多条数据
+
+            persons.DeleteMany(filter);
+
+            Console.WriteLine("删除所有Age>99的用户成功");
         }
     }
 }
-;

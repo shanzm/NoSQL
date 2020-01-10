@@ -1,15 +1,15 @@
-## 基于dotnet ,使用几种常见的NoSQL数据库
+## 基于dotnet ,使用几种常见的NoSQL数据库 {ignore=true}
+
 update :2020年1月10日 10:25:41-shanzm
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 * 目录：
 <!-- code_chunk_output -->
 
-- [基于dotnet ,使用几种常见的NoSQL数据库](#基于dotnet-使用几种常见的nosql数据库)
-  - [0 .net中的缓存对象](#0-net中的缓存对象)
-  - [1.MemCached](#1memcached)
-  - [2.Redis](#2redis)
-  - [3.MongoDB](#3mongodb)
+- [0 .net中的缓存对象](#0-net中的缓存对象)
+- [1.MemCached](#1memcached)
+- [2.Redis](#2redis)
+- [3.MongoDB](#3mongodb)
 
 <!-- /code_chunk_output -->
 - [示例完整源码地址](https://github.com/shanzm/NoSQL)
@@ -17,9 +17,8 @@ update :2020年1月10日 10:25:41-shanzm
 <hr style="height:8px;border:none;border-top:5px double black;" />
 
 
-[示例完整源码地址](https://github.com/shanzm/NoSQL)
  
-### 0 .net中的缓存对象
+### 0 .net中的缓存对象 
 
 * MemoryCache对象
 * HttpContext.Cache (Asp.net)对象

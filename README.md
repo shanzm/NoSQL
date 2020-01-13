@@ -20,10 +20,15 @@ update :2020年1月13日 22:58:19-shanzm
 ### 0 .net中的缓存对象
 
 * 因为需要向服务器多次请求相同的数据，为了减轻服务器压力，所以引入缓存。
+
 * 在.net中的缓存类为`MemoryCache`（.net 4.0引入），其继承于`ObjectCache`抽象类，并且实现了`IEnumerable`和`IDisposable`接口。和ASP.NET中的`HttpContext.Cache`对象具有相同的功能！但是MemoryCache更加通用，也是可以使用在ASP.NET中的。
+
 * MemoryCache对象的数据形式为键值对形式
+
 * MemoryCache对象可以设置缓存的时间
+
 * MemoryCache是存入到程序进程的内存中的，程序重启之后就没了
+
 * 项目若是使用的是服务器集群，那么因为程序请求不同的服务器，缓存在各个服务器中不能共享，所以数据要在不同的服务器中缓存，所以需要占用大量的内存，此时使用程序内缓存就不合适了
 所以，如果数据量比较大或者集群服务器比较多，就要用单独的分布式缓存了，也就是搞一台或者多台专门服务器保存缓存数据，所有服务器都访问分布式缓存服务器。
 
@@ -43,12 +48,19 @@ memCache.Add("name", "shanzm", DateTimeOffset.Now.AddSeconds(10));
 ### 1.MemCached
 
 * Memcached是一个自由开源的，高性能，分布式内存对象缓存系统。
+
 * 使用Memcached的目的：通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。
+
 * MemCached存储的数据形式是键值对的形式，可以简单的理解为一个大`Dictionary<key ,value>`
+
 * MemCached存储的数据在服务器的内存中，读取效率较高，但是客户端和服务器之间的通讯是通过网络通讯，所以效率不及使用.net中的缓存对象缓存
+
 * 当然也是因为MemCached存储的数据写在内存中，所以服务器重启之后则数据全部即被清空。
+
 * 官网上并未提供 Memcached 的 Windows 平台安装包，需要自行编译。安装包下载：[推荐一个编译好的安装包](http://static.runoob.com/download/memcached-win32-1.4.4-14.zip)
+
 * 注意ADO.Net只支持关系型数据库，所以在.net中使用NoSQL数据库需要自行安装驱动。
+
 * 注意.net下的MemCached驱动有很多，推荐使用EnyimMemcached
 NuGet:`PM> Install-Package EnyimMemcached`
 
@@ -102,6 +114,7 @@ using (MemcachedClient memClient = new MemcachedClient(memConfig))
 ### 2.Redis
 
 * Redis是完全开源免费的，是一个高性能的key-value数据库
+
 * 相对于MemCached等NoSQL数据库其有如下特点：
   * Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。
   * Redis 中value数据类型有6种，同字符串(**String**), 哈希(**Hash**), 列表(**list**), 集合(**set**) 和 有序集合(**sorted set**)，经纬度(**geo**，仅限Redis3.2以上版本)

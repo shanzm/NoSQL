@@ -37,6 +37,7 @@ namespace _002MemCachedDemo
             //创建配置对象
             MemcachedClientConfiguration memConfig = new MemcachedClientConfiguration();
             memConfig.AddServer("127.0.0.1:11211");
+            //若是Memcached集群，此处可以同时添加多个服务器ip地址，然后客户端根据自己的算法决定把数据写入哪个 Memcached 实例
 
             //创建MemcachedClient对象
             using (MemcachedClient memClient = new MemcachedClient(memConfig))

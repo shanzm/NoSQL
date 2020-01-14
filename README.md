@@ -147,13 +147,21 @@ NuGet:`PM>Install-Package StackExchange.Redist`（注意其所支持的dotnet版
 * Redis中的六种数据类型的具体操作及使用案例
 
   [005使用Redis计算新闻点击量](https://github.com/shanzm/NoSQL/tree/master/005%E4%BD%BF%E7%94%A8Redis%E8%AE%A1%E7%AE%97%E6%96%B0%E9%97%BB%E7%82%B9%E5%87%BB%E9%87%8F)
+
   [006Redis中的list使用](https://github.com/shanzm/NoSQL/tree/master/006Redis%E4%B8%AD%E7%9A%84list%E4%BD%BF%E7%94%A8)
+
   [007模拟注册发送邮件验证](https://github.com/shanzm/NoSQL/tree/master/007%E6%A8%A1%E6%8B%9F%E6%B3%A8%E5%86%8C%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%E9%AA%8C%E8%AF%81)
+
   [008Redis中的set使用](https://github.com/shanzm/NoSQL/tree/master/008Redis%E4%B8%AD%E7%9A%84set%E4%BD%BF%E7%94%A8)
+
   [009Redis中的sorted set使用](https://github.com/shanzm/NoSQL/tree/master/009Redis%E4%B8%AD%E7%9A%84sorted%20set%E4%BD%BF%E7%94%A8)
+
   [010Redis中使用sorted set实现热搜](https://github.com/shanzm/NoSQL/tree/master/010Redis%E4%B8%AD%E4%BD%BF%E7%94%A8sorted%20set%E5%AE%9E%E7%8E%B0%E7%83%AD%E6%90%9C)
+
   [011Redis中使用hash使用](https://github.com/shanzm/NoSQL/tree/master/011Redis%E4%B8%AD%E4%BD%BF%E7%94%A8hash%E4%BD%BF%E7%94%A8)
+
   [012Redis中的geo使用](https://github.com/shanzm/NoSQL/tree/master/012Redis%E4%B8%AD%E7%9A%84geo%E4%BD%BF%E7%94%A8)(注意只支持最新版本的Redis)
+  
   [015Redis实现随机分红包](https://github.com/shanzm/NoSQL/tree/master/015Redis%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E5%88%86%E7%BA%A2%E5%8C%85)
 
 
